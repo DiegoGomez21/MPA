@@ -1,3 +1,8 @@
+Proyecto MPA con DJANGO-REST-FRAMEWORK y motor de plantillas de django
+
+Autor: Diego Alejandro Gómez Pedraza
+Código: 2211060
+
 La vista principal del proyecto se encuentra en esta URL
 
 
