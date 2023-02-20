@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Iniciar sesión{% endblock %}
+
+{% block content %}
+  <h2>Iniciar sesión</h2>
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="email">Correo</label>
+      <input type="text" class="form-control" id="email" name="email">
+    </div>
+    <div class="form-group">
+      <label for="password">Contraseña</label>
+      <input type="password" class="form-control" id="password" name="password">
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+  </form>
+{% endblock %}

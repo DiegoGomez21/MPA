@@ -1,0 +1,33 @@
+{% extends "base1.html" %}
+
+{% block content %}
+  <h1>Edit Post</h1>
+  <form method="post" action="{% url 'post_edit' pk=post.id %}">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input type="text" name="title" id="title" value="{{ post.title }}" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="slug">Slug:</label>
+      <input type="text" name="slug" id="slug" value="{{ post.slug }}" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="content">Content:</label>
+      <textarea name="content" id="content" class="form-control">{{ post.content }}</textarea>
+    </div>
+    <div class="form-group">
+      <label for="created_at">Created At:</label>
+      <input type="datetime-local" name="created_at" id="created_at" value="{{ post.created_at | date:'Y-m-d\TH:i' }}" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="published">Published:</label>
+        <select name="published" id="published" class="form-control">
+          <option value="1"{% if post.published %} selected{% endif %}>Si</option>
+          <option value="0"{% if not post.published %} selected{% endif %}>No</option>
+        </select>
+      </div>
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+    <button type="submit" class="btn btn-secundary"><a class="nav-link" href="{% url 'posts-list' %}">Cancelar</a></button>
+  </form>
+{% endblock %}

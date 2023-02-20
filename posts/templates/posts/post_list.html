@@ -1,0 +1,21 @@
+{% extends 'base1.html' %}
+
+{% block content %}
+  <br>
+  <div class="container">
+    <h1 class="mb-4">Posts</h1>
+    <div class="row">
+      {% for post in posts %}
+        <div class="col-md-13 mb-2">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ post.title }}</h5>
+              <p class="card-text">{{ post.username }}</p>
+              <a href="{% url 'post_detail' pk=post.id %}" class="btn btn-primary">Detalles</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
